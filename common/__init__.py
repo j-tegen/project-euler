@@ -1,10 +1,22 @@
 import math
 
-def is_prime(number):
-  upper_limit = math.ceil(number + 1 / 2)
-  for i in range(2, upper_limit):
-    if number != i and number % i == 0:
+def is_prime(n):
+  if n == 2:
+    return True
+  if n == 3:
+    return True
+  if n % 2 == 0:
+    return False
+  if n % 3 == 0:
+    return False
+
+  i = 5
+  w = 2
+  while i * i <= math.ceil(math.sqrt(n)):
+    if n % i == 0:
       return False
+    i += w
+    w = 6 - w
   return True
 
 def is_palindrome(number):
@@ -16,4 +28,13 @@ def is_palindrome(number):
   return True
 
 def is_pythogarean_triplet(a, b, c):
-  return Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)
+  return math.pow(a, 2) + math.pow(b, 2) == math.pow(c, 2)
+
+def parse_string_matrix(matrix):
+  ret_val = []
+  for row in matrix.split('\n'):
+    x = []
+    for num in row.split(' '):
+      x.append(int(num))
+    ret_val.append(x)
+  return ret_val
