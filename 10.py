@@ -1,5 +1,5 @@
-from common  import is_prime
-
+from common import is_prime, e_sieve
+import time
 MAX_NUMBER = 2000000
 def get_primes():
     val = 2
@@ -11,4 +11,12 @@ def get_primes():
             return primes
         val += 1
 
+start = time. time()
 print(sum(get_primes()))
+end = time. time()
+print(end - start)
+
+start = time. time()
+print(sum(e_sieve(MAX_NUMBER)))
+end = time. time()
+print(end - start)
